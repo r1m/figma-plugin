@@ -1,3 +1,6 @@
+/// <reference path="./node_modules/@figma/plugin-typings/index.d.ts" />
+/// <reference path="./node_modules/@tokens-bruecke/token-types/index.d.ts" />
+
 type nameConventionType =
   | "none"
   | "PascalCase"
@@ -82,7 +85,7 @@ interface CustomURLCredentialsI {
   headers: string;
 }
 
-interface JSONSettingsConfigI {
+interface ExportSettingsI {
   includedStyles: IncludedStylesI;
   includeScopes: boolean;
   useDTCGKeys: boolean;
@@ -90,14 +93,19 @@ interface JSONSettingsConfigI {
   colorMode: colorModeType;
   variableCollections: string[];
   selectedCollection: string;
-  servers: {
-    jsonbin: JsonbinCredentialsI;
-    github: GithubCredentialsI;
-    githubPullRequest: GithubPullRequestCredentialsI;
-    gitlab: GitlabCredentialsI;
-    customURL: CustomURLCredentialsI;
-  };
 }
+
+interface ServerSettingsI {
+  jsonbin: JsonbinCredentialsI;
+  github: GithubCredentialsI;
+  githubPullRequest: GithubPullRequestCredentialsI;
+  gitlab: GitlabCredentialsI;
+  customURL: CustomURLCredentialsI;
+}
+
+type JSONSettingsConfigI = ExportSettingsI & {
+  servers: ServerSettingsI;
+};
 
 interface PluginTokenI {
   $value: string;

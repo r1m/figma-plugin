@@ -5,22 +5,22 @@ import { getLetterSpacing } from "../text/getLetterSpacing";
 import { getFontWeight } from "../text/getFontWeight";
 import { getTokenKeyName } from "../getTokenKeyName";
 import { getAliasVariableName } from "../getAliasVariableName";
-
+import { IResolver } from "../../resolvers/resolver";
 
 export const textStylesToTokens = async (
   customName: string,
   isDTCGForamt: boolean,
-  includeValueAliasString: boolean
+  includeValueAliasString: boolean,
+  resolver: IResolver
 ) => {
   const keyNames = getTokenKeyName(isDTCGForamt);
-  const textStyles = figma.getLocalTextStyles();
+  const textStyles = await resolver.getLocalTextStyles();
 
   console.log("textStyles", textStyles);
 
   let textTokens = {};
 
   const allTextStyles = textStyles.reduce((result, style) => {
-
     let aliasVariables = {} as TextStyle["boundVariables"];
     const boundVariables = style.boundVariables;
 
@@ -31,9 +31,10 @@ export const textStylesToTokens = async (
           [key]: getAliasVariableName(
             boundVariables[key].id,
             isDTCGForamt,
-            includeValueAliasString
+            includeValueAliasString,
+            resolver
           ),
-        }
+        };
       });
     }
 
@@ -41,14 +42,19 @@ export const textStylesToTokens = async (
       [keyNames.type]: "typography",
       [keyNames.value]: {
         fontFamily: aliasVariables.fontFamily || style.fontName.family,
-        fontWeight: aliasVariables.fontWeight || getFontWeight(style.fontName.style),
+        fontWeight:
+          aliasVariables.fontWeight || getFontWeight(style.fontName.style),
         fontSize: aliasVariables.fontSize || `${style.fontSize}px`,
-        lineHeight: aliasVariables.lineHeight || getLineHeight(style.lineHeight),
-        letterSpacing: aliasVariables.letterSpacing || getLetterSpacing(style.letterSpacing),
-        paragraphSpacing: aliasVariables.paragraphSpacing || `${style.paragraphSpacing}`,
-        paragraphIndent: aliasVariables.paragraphIndent || `${style.paragraphIndent}`,
+        lineHeight:
+          aliasVariables.lineHeight || getLineHeight(style.lineHeight),
+        letterSpacing:
+          aliasVariables.letterSpacing || getLetterSpacing(style.letterSpacing),
+        paragraphSpacing:
+          aliasVariables.paragraphSpacing || `${style.paragraphSpacing}`,
+        paragraphIndent:
+          aliasVariables.paragraphIndent || `${style.paragraphIndent}`,
         textDecoration: style.textDecoration,
-        textCase: style.textCase
+        textCase: style.textCase,
       },
       [keyNames.description]: style.description,
       $extensions: {
