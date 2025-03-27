@@ -1,24 +1,23 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "outDir": "dist",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "experimentalDecorators": true,
     "removeComments": true,
     "noImplicitAny": false,
     "moduleResolution": "node",
+    "noEmit": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    // "typeRoots": [
-    //   "./node_modules/@types",
-    //   "./node_modules/@figma",
-    //   "./node_modules/@tokens-bruecke",
-    //   "./node_modules/@figma/rest-api-spec"
-    // ]
   },
-  "include": [
-    "src/**/*",
-    "*.d.ts"
-  ]
+  "include": [],
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.plugin.json"
+    },
+    {
+      "path": "./tsconfig.cli.json"
+    }
+  ],
 }
