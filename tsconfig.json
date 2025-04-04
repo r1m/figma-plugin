@@ -9,6 +9,9 @@
     "moduleResolution": "node",
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
+    "lib": [
+      "es2021"
+    ],
   },
   "include": [],
   "files": [],
