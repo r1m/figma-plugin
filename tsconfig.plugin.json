@@ -24,7 +24,7 @@
     ],
     "files": [
         "src/app/index.tsx",
-        "src/controller/index.ts"
+        "src/app/controller/index.ts"
     ],
     "exclude": [
         "src/cli/**/*"
