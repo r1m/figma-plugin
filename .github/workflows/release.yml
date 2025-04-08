@@ -1,0 +1,37 @@
+on:
+  push:
+    branches:
+      - main
+name: release-please
+permissions: {}
+jobs:
+  release-please:
+    permissions:
+      contents: write # to create release commit (google-github-actions/release-please-action)
+      pull-requests: write # to create release PR (google-github-actions/release-please-action)
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v4
+
+      - name: Build package
+        run: pnpm install && pnpm run build
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Upload Release Artifact
+        if: ${{ steps.release.outputs.release_created }}
+        run: gh release upload ${{ steps.release.outputs.tag_name }} ./dist/figma-plugin.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish on npm
+        run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        if: ${{ steps.release.outputs.release_created }}

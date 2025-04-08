@@ -15,16 +15,16 @@ import {
   OverlayList,
 } from "pavelLaptev/react-figma-ui/ui";
 
-import { config } from "../../../utils/config";
+import { config } from "../../controller/config";
 
 import { Toast } from "../../components/Toast";
 import { ServerSettingsView } from "../ServerSettingsView";
 
-import { pushToJSONBin } from "../../../utils/servers/pushToJSONBin";
-import { pushToGithub } from "../../../utils/servers/pushToGithub";
-import { githubPullRequest } from "../../../utils/servers/githubPullRequest";
-import { pushToGitlab } from "../../../utils/servers/pushToGitlab";
-import { pushToCustomURL } from "../../../utils/servers/pushToCustomURL";
+import { pushToJSONBin } from "../../api/servers/pushToJSONBin";
+import { pushToGithub } from "../../api/servers/pushToGithub";
+import { githubPullRequest } from "../../api/servers/githubPullRequest";
+import { pushToGitlab } from "../../api/servers/pushToGitlab";
+import { pushToCustomURL } from "../../api/servers/pushToCustomURL";
 
 import { downloadTokensFile } from "../../api/downloadTokensFile";
 
