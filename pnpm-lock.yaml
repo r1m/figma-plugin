@@ -8,27 +8,12 @@ importers:
 
   .:
     dependencies:
-      '@octokit/core':
-        specifier: ^5.0.0
-        version: 5.2.0
-      clipboard-copy:
-        specifier: ^4.0.1
-        version: 4.0.1
       decimal.js:
         specifier: ^10.5.0
         version: 10.5.0
       figma-api:
         specifier: 2.0.1-beta
         version: 2.0.1-beta
-      pavelLaptev/react-figma-ui:
-        specifier: git+https://git@github.com/PavelLaptev/react-figma-ui.git#4c8d20dbd911c0008fd4d0b20280f14404f186e7
-        version: react-figma-ui@https://codeload.github.com/PavelLaptev/react-figma-ui/tar.gz/4c8d20dbd911c0008fd4d0b20280f14404f186e7
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.3.1(react@18.3.1)
       yargs:
         specifier: ^17.7.2
         version: 17.7.2
@@ -39,6 +24,9 @@ importers:
       '@figma/rest-api-spec':
         specifier: ^0.25.0
         version: 0.25.0
+      '@octokit/core':
+        specifier: ^5.0.0
+        version: 5.2.0
       '@tokens-bruecke/token-types':
         specifier: git+https://github.com/tokens-bruecke/token-types.git#1.4.0
         version: '@tokens-bruecke/tokens-types@https://codeload.github.com/tokens-bruecke/token-types/tar.gz/8619a9cf0943ef1cb6d803556c3456f756bd2dfc'
@@ -57,6 +45,9 @@ importers:
       buffer:
         specifier: ^6.0.3
         version: 6.0.3
+      clipboard-copy:
+        specifier: ^4.0.1
+        version: 4.0.1
       copy-webpack-plugin:
         specifier: ^13.0.0
         version: 13.0.0(webpack@5.94.0(webpack-cli@4.10.0))
@@ -75,12 +66,21 @@ importers:
       mini-css-extract-plugin:
         specifier: ^2.7.2
         version: 2.9.1(webpack@5.94.0(webpack-cli@4.10.0))
+      pavelLaptev/react-figma-ui:
+        specifier: git+https://git@github.com/PavelLaptev/react-figma-ui.git#4c8d20dbd911c0008fd4d0b20280f14404f186e7
+        version: react-figma-ui@https://codeload.github.com/PavelLaptev/react-figma-ui/tar.gz/4c8d20dbd911c0008fd4d0b20280f14404f186e7
       prettier:
         specifier: ^2.7.1
         version: 2.8.8
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
       react-dev-utils:
         specifier: ^12.0.1
         version: 12.0.1(typescript@4.9.5)(webpack@5.94.0(webpack-cli@4.10.0))
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
       sass:
         specifier: ^1.57.1
         version: 1.78.0
