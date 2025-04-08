@@ -2,6 +2,10 @@
   "name": "tokens-bruecke",
   "version": "2.5.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tokens-bruecke/figma-plugin.git"
+  },
   "description": "Tokens Bruecke is a Figma cli that helps you to export varibales as design tokens.",
   "keywords": [
     "figma",

@@ -12,11 +12,25 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v4
-      - run: |
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: |
           pnpm install
           node --version
-      - run: |
+      - name: Build & Tests
+        run: |
           pnpm run build
           pnpm run test
