@@ -10,6 +10,7 @@ jobs:
       contents: write # to create release commit (google-github-actions/release-please-action)
       pull-requests: write # to create release PR (google-github-actions/release-please-action)
       statuses: write
+      issues: write
       packages: write # to create NPM package under github registry
 
     runs-on: ubuntu-latest
