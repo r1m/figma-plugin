@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
+import pkg from "../../../../package.json";
 
 import {
   Panel,
@@ -46,6 +47,7 @@ interface ViewProps {
   currentView: string;
 }
 
+const version = pkg.version;
 const stylesList = [
   {
     id: "text",
@@ -672,7 +674,7 @@ export const SettingsView = (props: ViewProps) => {
               <Text>Documentation</Text>
             </a>
             <a href={config.changelogLink} target="_blank">
-              <Text>v.2.5.0</Text>
+              <Text>v.{version}</Text>
             </a>
           </Stack>
         </Panel>
